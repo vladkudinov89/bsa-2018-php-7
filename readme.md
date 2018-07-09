@@ -94,6 +94,7 @@ php artisan key:generate
 **maxAmount** - возвращает float значение, наибольшее кол-во валюты в хранилище.
 
 #### Запуск тестов
+
 ```
-./vendor/bin/phpunit --testsuite task1
+./vendor/bin/phpunit
 ```
