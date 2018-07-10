@@ -2,12 +2,15 @@
 
 namespace App\Entity;
 
-use App\User;
+use App\Entity\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Wallet
+class Wallet extends Model
 {
     use SoftDeletes;
+
+    protected $table = "wallet";
 
     public function money()
     {

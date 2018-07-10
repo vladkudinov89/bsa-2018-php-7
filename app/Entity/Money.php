@@ -2,11 +2,14 @@
 
 namespace App\Entity;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Money
+class Money extends Model
 {
     use SoftDeletes;
+
+    protected $table = "money";
 
     public function currency()
     {

@@ -16,8 +16,10 @@ class CreateMoneyTable extends Migration
         Schema::create('money', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('currency_id')->unsigned();
+
             $table->float('amount');
             $table->integer('wallet_id')->unsigned();
+
             $table->softDeletes();
             $table->timestamps();
 
