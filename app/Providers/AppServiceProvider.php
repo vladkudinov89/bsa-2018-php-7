@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Services\CurrencyService;
+use App\Services\CurrencyServiceInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,6 +16,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        $this->app->bind(CurrencyServiceInterface::class, CurrencyService::class);
     }
 
     /**
@@ -24,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
+
     }
 }
