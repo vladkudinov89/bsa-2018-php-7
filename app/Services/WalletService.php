@@ -23,6 +23,7 @@ class WalletService implements WalletServiceInterface
     public function findByUser(int $userId): ?Wallet
     {
         // TODO: Implement findByUser() method.
+        return Wallet::find($userId);
     }
 
     public function create(CreateWalletRequest $request): Wallet
