@@ -20,8 +20,9 @@ class WalletService implements WalletServiceInterface
     public function findCurrencies(int $walletId): Collection
     {
         // TODO: Implement findCurrencies() method.
-        $currencyId = Money::where('wallet_id' , $walletId)->get();
-        return Currency::find($currencyId);
+        return Currency::whereHas('money', function ($query) use ($walletId){
+            $query->where('wallet_id', $walletId);
+        })->get();
     }
 
     public function findByUser(int $userId): ?Wallet
@@ -36,7 +37,7 @@ class WalletService implements WalletServiceInterface
         $userId = $request->getUserId();
         $wallet = Wallet::where('user_id' , $userId)->first();
 
-        if($wallet !== null){
+        if($wallet != null){
             throw new \LogicException();
         }
 
